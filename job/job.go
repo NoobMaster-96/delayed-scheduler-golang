@@ -1,21 +1,22 @@
 package job
 
-import "fmt"
-
 type Job interface {
 	Execute()
 }
 
-type PrintJob struct {
-	message string
+type SumJob struct {
+	a   int64
+	b   int64
+	sum int64
 }
 
-func (p *PrintJob) Execute() {
-	fmt.Println(p.message)
+func (p *SumJob) Execute() {
+	p.sum = p.a + p.b
 }
 
-func NewPrintJob(message string) *PrintJob {
-	return &PrintJob{
-		message: message,
+func NewSumJob(a, b int64) *SumJob {
+	return &SumJob{
+		a: a,
+		b: b,
 	}
 }
