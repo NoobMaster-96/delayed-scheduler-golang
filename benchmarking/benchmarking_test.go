@@ -3,11 +3,13 @@ package benchmarking
 import (
 	"github.com/NoobMaster-96/delayed-scheduler-golang/delayed_scheduler"
 	"github.com/NoobMaster-96/delayed-scheduler-golang/job"
+	"runtime/debug"
 	"testing"
 	"time"
 )
 
 func BenchmarkScheduler(b *testing.B) {
+	debug.SetGCPercent(500)
 	delayedScheduler := delayed_scheduler.NewScheduler()
 
 	sumJob1 := job.NewSumJob(2, 3)
