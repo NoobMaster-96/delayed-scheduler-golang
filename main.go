@@ -19,4 +19,5 @@ func main() {
 	delayedScheduler.Schedule(sumJob3, 3*time.Second)
 
 	time.Sleep(10 * time.Second)
+	delayedScheduler.Stop()
 }
